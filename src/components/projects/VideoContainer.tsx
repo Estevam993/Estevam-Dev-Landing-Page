@@ -1,6 +1,8 @@
 "use client"
 import {JSX, useEffect, useRef} from "react";
 import {gsap} from "gsap";
+import {IconQuestionMark} from "@tabler/icons-react";
+import {Popover, PopoverContent, PopoverTrigger,} from "@/components/ui/popover"
 
 type VideoContainerType = {
   video: {
@@ -27,15 +29,15 @@ export default function VideoContainer({video, show}: VideoContainerType): JSX.E
         {opacity: 1, x: 0, duration: 0.6, ease: "power2.out"}
       );
     }
-  }, [show]);
+  }, [show, video.value]);
 
   return (
     <div
-      className={`${show === video.value ? 'block' : 'hidden'} flex flex-col xl:flex-row gap-4`}
+      className={`${show === video.value ? 'block' : 'hidden'} flex flex-col gap-4`}
     >
       <div className={"w-full flex justify-center items-center"}>
         <div
-          className={"max-w-[790px]"}
+          className={"max-w-[62rem]"}
           ref={ref}
           data-video={video.value}
         >
@@ -44,26 +46,36 @@ export default function VideoContainer({video, show}: VideoContainerType): JSX.E
             Seu navegador não suporta o elemento de vídeo.
           </video>
         </div>
-
       </div>
-      <div className={"bg-white p-2 rounded-lg h-max"}>
-        <div className={"text-xl "}>
-          {video.description}
-        </div>
-        <div style={{marginTop: '1rem'}} className={'flex flex-col gap-2'}>
-          {video.url.map((url, index) => (
-            <a
-              key={index}
-              className="flex items-center flex-row gap-2 rounded-md"
-              href={url.url}
-              target={'_blank'}
-            >
-              {url.icon}
-              {url.label}
-            </a>
-          ))}
-        </div>
-      </div>
+      <Popover>
+        <PopoverTrigger asChild>
+          <div
+            className={"w-8 h-8 shrink-0 bg-[var(--main-color)] text-[var(--background)] flex items-center justify-center rounded-full cursor-pointer shadow-md"}
+          >
+            <IconQuestionMark/>
+          </div>
+        </PopoverTrigger>
+        <PopoverContent>
+          <div className={"bg-white p-2 rounded-lg h-max"}>
+            <div className={"text-xl "}>
+              {video.description}
+            </div>
+            <div style={{marginTop: '1rem'}} className={'flex flex-col gap-2'}>
+              {video.url.map((url, index) => (
+                <a
+                  key={index}
+                  className="flex items-center flex-row gap-2 rounded-md"
+                  href={url.url}
+                  target={'_blank'}
+                >
+                  {url.icon}
+                  {url.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </PopoverContent>
+      </Popover>
     </div>
   )
 }

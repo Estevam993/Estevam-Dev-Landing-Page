@@ -1,11 +1,14 @@
-import {WelcomeContainer} from "@/components";
-import Projects from "../components/Projects";
+import {WelcomeContainer, Projects, Stacks} from "@/components";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="overflow-x-hidden">
       <WelcomeContainer/>
       <Projects />
+      <Stacks />
+      <div>
+        Contato
+      </div>
     </div>
   );
 }

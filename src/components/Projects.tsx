@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect, useRef, useState} from "react";
+import {useEffect} from "react";
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {useProjectsService} from "@/services";
@@ -11,12 +11,16 @@ import {IconX} from "@tabler/icons-react";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
-  const {projects, videos} = useProjectsService()
-
-  const [title, setTitle] = useState<string>("")
-  const [show, setShow] = useState<string>('')
-
-  const titleRef = useRef(null);
+  const {
+    projects,
+    videos,
+    title,
+    setTitle,
+    show,
+    setShow,
+    titleRef,
+    handleSelectProjectClick
+  } = useProjectsService()
 
   useEffect(() => {
     const element = titleRef.current;
@@ -34,50 +38,26 @@ export default function Projects() {
         ease: "power2.out",
         scrollTrigger: {
           trigger: element,
-          start: "top 10%",
+          start: "top 80%",
           toggleActions: "play none none reverse",
         },
       }
     );
-  }, []);
-
-  const handleSelectProjectClick = (target: EventTarget & HTMLDivElement, value: string, title: string): void => {
-    gsap.fromTo(
-      target,
-      {scale: 1},
-      {scale: 0.85, duration: 0.15, yoyo: true, repeat: 1}
-    );
-
-    const current = document.querySelector(`[data-video="${show}"]`);
-
-    if (current) {
-      gsap.to(current, {
-        opacity: 0,
-        x: -20,
-        duration: 0.3,
-        onComplete: () => {
-          setShow(value);
-          setTitle(title)
-        },
-      });
-    } else {
-      setShow(value);
-      setTitle(title)
-    }
-  }
+  }, [titleRef]);
 
   return (
-    <div className="h-[100vh] w-[100vw] p-4">
-      <div className="flex flex-col">
-        <div className={"text-lg font-bold text-center mb-2"}>
-          {title}
+    <div className="w-full min-h-[14rem] py-4 px-4 md:px-60">
+      <div className="flex flex-col" ref={titleRef}>
+        <div className={"text-lg font-bold text-center"}>
+          {title || "Projects"}
         </div>
         <div className={"flex flex-row justify-between items-center h-full w-full"}>
-          <div className="flex flex-row gap-2 overflow-x-auto">
+          <div className="flex flex-row gap-2 p-2 overflow-x-auto">
             {Object.entries(projects).map(([, project], index) => (
               <SelectProject
-                color={project.color}
                 key={index}
+                color={project.color}
+                selected={show == project.value}
                 onClick={(e) => {
                   handleSelectProjectClick(e.currentTarget, project.value, project.title);
                 }}
@@ -87,7 +67,7 @@ export default function Projects() {
             ))}
           </div>
           <div
-            className={"w-8 h-8 shrink-0 flex items-center justify-center rounded-md cursor-pointer"}
+            className={"w-8 h-8 shrink-0 flex items-center justify-center rounded-full cursor-pointer shadow-md"}
             onClick={() => {
               setTitle("")
               setShow("")
@@ -96,7 +76,7 @@ export default function Projects() {
             <IconX/>
           </div>
         </div>
-        <div className={'flex flex-col'} style={{marginTop: '1rem'}}>
+        <div className={'flex flex-col'}>
           {videos.map((video, index) => (
             <VideoContainer video={video} show={show} key={index}/>
           ))}

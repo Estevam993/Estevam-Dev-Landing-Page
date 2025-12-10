@@ -7,26 +7,9 @@ import {
   IconUserFilled,
   IconWorldWww
 } from "@tabler/icons-react";
-import {JSX} from "react";
-
-type ProjectsType = {
-  icon: JSX.Element;
-  title: string;
-  value: string;
-  color?: string;
-}
-
-type VideosProjectType = {
-  src: string
-  description: string
-  url: {
-    url: string
-    label: string
-    icon: JSX.Element
-  }[]
-  value: string
-  color: string
-}
+import {useRef, useState} from "react";
+import {gsap} from "gsap";
+import {ProjectsType, VideosProjectType} from "@/types/projects";
 
 const projects: ProjectsType[] = [
   {
@@ -69,7 +52,7 @@ const projects: ProjectsType[] = [
 const videos: VideosProjectType[] = [
   {
     src: "/videos/modelo_landing_page.mp4",
-    description: "Meu primeiro projeto de estudo sozinho, fiz ele em 2023 utilizando apenas HTML, CSS com Bootstrap e JavaScript.",
+    description: "My first self-study project (2023), built with HTML, Bootstrap CSS, and JavaScript.",
     url: [
       {
         url: 'https://github.com/Estevam993/modelo_landing_page',
@@ -78,11 +61,10 @@ const videos: VideosProjectType[] = [
       }
     ],
     value: 'landing_page',
-    color: 'red'
   },
   {
     src: "/videos/admin_page.mp4",
-    description: "Meu segundo projeto, porém agora bem mais avançado com back end em NestJs com autenticação JWT e banco de dados Postgrees e front-end com NextJs com Mui e Axios.",
+    description: "Advanced full-stack project with NestJS backend (JWT auth, PostgreSQL) and Next.js frontend (MUI, Axios).",
     url: [
       {
         url: 'https://github.com/Estevam993/admin_page_back',
@@ -96,11 +78,10 @@ const videos: VideosProjectType[] = [
       }
     ],
     value: 'admin_page',
-    color: 'pink'
   },
   {
     src: "/videos/front_end_challenge.mp4",
-    description: "Esse site foi um desafio que fiz para um processo seletivo. Fiz em NextJs e consumi a API da marvel para pesquisar e exibir os heróis. Para favoritar utilizei local storage.",
+    description: "Selection process challenge: Next.js app with Marvel API integration and local storage for favorites.",
     url: [
       {
         url: 'https://frontend-challange-p2zmfeg4u-estevam993s-projects.vercel.app',
@@ -113,11 +94,10 @@ const videos: VideosProjectType[] = [
       },
     ],
     value: 'front_end_challenge',
-    color: 'green'
   },
   {
     src: "/videos/album_rating.mp4",
-    description: "Aplicação back-end em C# com integração ao Spotify, permitindo pesquisa de álbuns e criação de avaliações personalizadas.",
+    description: "Backend C# application with Spotify integration for album search and custom reviews.",
     url: [{
       url: 'https://github.com/Estevam993/AlbumRating',
       label: 'album-rating',
@@ -125,11 +105,10 @@ const videos: VideosProjectType[] = [
     },
     ],
     value: 'album_rating',
-    color: 'yellow'
   },
   {
     src: "/videos/gdash_challenge.mp4",
-    description: "aaaaaa.",
+    description: "Full-stack challenge: Real-time weather data pipeline with Go worker, NestJS/MongoDB API, React dashboard, and AI insights. Dockerized architecture.",
     url: [{
       url: 'https://github.com/Estevam993/desafio-gdash/tree/joao-vitor-estevam-raimundo',
       label: 'gdash_challenge',
@@ -137,14 +116,48 @@ const videos: VideosProjectType[] = [
     },
     ],
     value: 'gdash_challenge',
-    color: 'pink'
   }
 ]
 
 export default function useProjectsService() {
+  const [title, setTitle] = useState<string>("")
+  const [show, setShow] = useState<string>('')
+
+  const titleRef = useRef(null);
+
+  const handleSelectProjectClick = (target: EventTarget & HTMLDivElement, value: string, title: string): void => {
+    gsap.fromTo(
+      target,
+      {scale: 1},
+      {scale: 0.85, duration: 0.15, yoyo: true, repeat: 1}
+    );
+
+    const current = document.querySelector(`[data-video="${show}"]`);
+
+    if (current) {
+      gsap.to(current, {
+        opacity: 0,
+        x: -20,
+        duration: 0.3,
+        onComplete: () => {
+          setShow(value);
+          setTitle(title)
+        },
+      });
+    } else {
+      setShow(value);
+      setTitle(title)
+    }
+  }
 
   return {
     projects,
-    videos
+    videos,
+    title,
+    setTitle,
+    show,
+    setShow,
+    titleRef,
+    handleSelectProjectClick
   }
 }
