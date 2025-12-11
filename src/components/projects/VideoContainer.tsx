@@ -50,13 +50,20 @@ export default function VideoContainer({video, show}: VideoContainerType): JSX.E
       <Popover>
         <PopoverTrigger asChild>
           <div
-            className={"w-8 h-8 shrink-0 bg-[var(--main-color)] text-[var(--background)] flex items-center justify-center rounded-full cursor-pointer shadow-md"}
+            className={`
+            w-8 h-8 
+            shrink-0 
+            flex items-center justify-center 
+            bg-[var(--main-color)] text-white
+            rounded-full 
+            cursor-pointer 
+            `}
           >
             <IconQuestionMark/>
           </div>
         </PopoverTrigger>
         <PopoverContent>
-          <div className={"bg-white p-2 rounded-lg h-max"}>
+          <div className={"p-2 rounded-lg h-max"}>
             <div className={"text-xl "}>
               {video.description}
             </div>

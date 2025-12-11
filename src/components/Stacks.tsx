@@ -11,7 +11,7 @@ const Card = ({children}: HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
       className="card-item
-      p-4 w-64 h-24
+      p-4
       flex items-center justify-between
       bg-[var(--background)]
       rounded-md shadow-md text-4xl cursor-pointer"
@@ -72,13 +72,13 @@ export default function Stacks() {
       className="h-[150vh] w-[100vw] p-4 stacks-container flex flex-col items-center gap-6 pt-24"
     >
       <Card>
-        Front End <IconFileTypeJsx size={"2rem"}/>
+        <IconFileTypeJsx size={"2rem"}/>
       </Card>
       <Card>
-        Back End <IconBrandNodejs size={"2rem"}/>
+        <IconBrandNodejs size={"2rem"}/>
       </Card>
       <Card>
-        See all <IconBrowserMaximize size={"2rem"}/>
+        <IconBrowserMaximize size={"2rem"}/>
       </Card>
     </div>
   );
