@@ -47,10 +47,11 @@ export default function VideoContainer({video, show}: VideoContainerType): JSX.E
           </video>
         </div>
       </div>
-      <Popover>
-        <PopoverTrigger asChild>
-          <div
-            className={`
+      <div className={"block lg:hidden"}>
+        <Popover>
+          <PopoverTrigger asChild>
+            <div
+              className={`
             w-8 h-8 
             shrink-0 
             flex items-center justify-center 
@@ -58,31 +59,52 @@ export default function VideoContainer({video, show}: VideoContainerType): JSX.E
             rounded-full 
             cursor-pointer 
             `}
-          >
-            <IconQuestionMark/>
-          </div>
-        </PopoverTrigger>
-        <PopoverContent>
-          <div className={"p-2 rounded-lg h-max"}>
-            <div className={"text-xl "}>
-              {video.description}
+            >
+              <IconQuestionMark/>
             </div>
-            <div style={{marginTop: '1rem'}} className={'flex flex-col gap-2'}>
-              {video.url.map((url, index) => (
-                <a
-                  key={index}
-                  className="flex items-center flex-row gap-2 rounded-md"
-                  href={url.url}
-                  target={'_blank'}
-                >
-                  {url.icon}
-                  {url.label}
-                </a>
-              ))}
+          </PopoverTrigger>
+          <PopoverContent>
+            <div className={"p-2 rounded-lg h-max"}>
+              <div className={"text-xl "}>
+                {video.description}
+              </div>
+              <div style={{marginTop: '1rem'}} className={'flex flex-col gap-2'}>
+                {video.url.map((url, index) => (
+                  <a
+                    key={index}
+                    className="flex items-center flex-row gap-2 rounded-md"
+                    href={url.url}
+                    target={'_blank'}
+                  >
+                    {url.icon}
+                    {url.label}
+                  </a>
+                ))}
+              </div>
             </div>
+          </PopoverContent>
+        </Popover>
+      </div>
+      <div className={"hidden lg:block"}>
+        <div className={"p-2 rounded-lg h-max bg-white"}>
+          <div className={"text-xl "}>
+            {video.description}
           </div>
-        </PopoverContent>
-      </Popover>
+          <div style={{marginTop: '1rem'}} className={'flex flex-col gap-2'}>
+            {video.url.map((url, index) => (
+              <a
+                key={index}
+                className="flex items-center flex-row gap-2 rounded-md"
+                href={url.url}
+                target={'_blank'}
+              >
+                {url.icon}
+                {url.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

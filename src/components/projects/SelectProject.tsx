@@ -9,9 +9,12 @@ function SelectProject({selected, children, ...props}: SelectProjectType) {
     <div
       className={`
         w-14 h-14 
+        lg:w-full lg:max-w-[230px]
         shrink-0 
         lg:shrink
         flex items-center justify-center 
+        lg:justify-start 
+        lg:gap-4 lg:p-2
         rounded-md 
         cursor-pointer 
         ${selected ? 'shadow-sm shadow-secondary/40' : "shadow-sm shadow-primary/40"}
@@ -54,7 +57,7 @@ export default function SelectProjectContainer({
       <div
         className={`
           flex flex-row lg:flex-col 
-          gap-2 p-2 
+          gap-4 p-2 
           overflow-x-auto lg:overflow-x-visible 
           lg:whitespace-normal lg:flex-wrap 
           lg:max-h-[380px]
@@ -69,6 +72,7 @@ export default function SelectProjectContainer({
             }}
           >
             {project.icon}
+            <div className={"hidden lg:block"}> {project.title} </div>
           </SelectProject>
         ))}
       </div>

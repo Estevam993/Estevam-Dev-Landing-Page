@@ -121,7 +121,7 @@ const videos: VideosProjectType[] = [
 
 export default function useProjectsService() {
   const [title, setTitle] = useState<string>("")
-  const [show, setShow] = useState<string>('')
+  const [show, setShow] = useState<string>('landing_page')
 
   const titleRef = useRef(null);
 

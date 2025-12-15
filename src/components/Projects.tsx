@@ -45,7 +45,7 @@ export default function Projects() {
   }, [titleRef]);
 
   return (
-    <div className="w-full min-h-[14rem] py-4 px-4 md:px-60 bg-secondary">
+    <div className="w-full h-[75vh] py-4 px-4 md:px-60 bg-secondary">
       <div className={"text-lg text-white font-bold text-center"}>
         {title || "Projects"}
       </div>
