@@ -12,11 +12,11 @@ export default function Introduction() {
     );
 
   return (
-    <div className="w-full h-full py-24 px-4 md:px-40 lg:px-60 bg-secondary">
-      <div className={"text-white font-bold text-4xl md:text-7xl text-center mb-2 break-normal "}>
+    <div id={"introduction"} className="w-full h-full py-24 px-4 md:px-40 lg:px-60 bg-secondary flex flex-col lg:flex-row items-center gap-4">
+      <div className={"text-white font-bold text-4xl md:text-5xl xl:text-7xl text-center lg:text-start mb-2 break-normal w-full lg:max-w-1/2 "}>
         Searching for another level of development?
       </div>
-      <div className="welcome-container flex justify-center items-center backdrop-blur-xl py-12 p-4 rounded-xl">
+      <div className="welcome-container flex justify-center items-center backdrop-blur-xl py-12 p-4 rounded-xl w-full lg:max-w-1/2 shadow-inner shadow-secondary">
         <div className="w-full h-[18rem] bg-secondary rounded-xl p-1 flex flex-col">
           <div className={"flex flex-row py-1"}>
             <div className={"text-primary/50 pl-2 flex items-center gap-1 "}>
@@ -39,8 +39,6 @@ export default function Introduction() {
           <FakeEditor/>
         </div>
       </div>
-
-
     </div>
 
   )
