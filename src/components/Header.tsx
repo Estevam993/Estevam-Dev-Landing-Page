@@ -47,6 +47,32 @@ export default function Header() {
           </MenubarMenu>
         </Menubar>
       </div>
+
+      <div className={"hidden lg:flex items-center justify-center gap-4 lg:w-full"}>
+        <a href={"#welcome"}>
+          <div
+            className={`
+              text-white
+              hover:text-blue-400
+              hover:scale-115 cursor-pointer transition delay-150 duration-300 ease-in-out
+            `}
+          >
+            Welcome
+          </div>
+        </a>
+        <a href={"#introduction"}>
+          <div
+            className={`
+              text-white
+              hover:text-blue-400
+              hover:scale-115 cursor-pointer transition delay-150 duration-300 ease-in-out
+            `}
+          >
+            Introduction
+          </div>
+        </a>
+
+      </div>
     </header>
   )
 }

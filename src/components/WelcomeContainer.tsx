@@ -30,24 +30,46 @@ function yearSince(dataString: string): number {
 
 export default function WelcomeContainer() {
   const boxRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    gsap.from(boxRef.current, {
+    const tl = gsap.timeline({defaults: {ease: "power2.out"}});
+
+    tl.from(containerRef.current, {
       opacity: 0,
-      y: 30,
-      duration: 1.2,
-      ease: "power1.out",
-    });
+      duration: 0.6,
+    })
+      .from(titleRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+      })
+      .from(imageRef.current, {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.8,
+      }, "-=0.4")
+      .from(statsRef.current, {
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+      })
   }, []);
 
   return (
-    <div id={"welcome"} className="bg-secondary w-full py-24 px-4 md:px-20 lg:px-60 flex flex-col items-center gap-4">
+    <div
+      id={"welcome"}
+      className="bg-secondary w-full py-24 px-4 md:px-20 lg:px-60 flex flex-col items-center gap-4"
+    >
       <div
         className={"flex lg:flex-row flex-col w-full justify-around"}
         ref={boxRef}
       >
         <div
-          ref={boxRef}
+          ref={titleRef}
           className={"text-white text-center lg:text-start text-4xl lg:text-5xl xl:text-7xl"}
         >
           <div className={"block lg:hidden"}>
@@ -64,12 +86,15 @@ export default function WelcomeContainer() {
           </div>
         </div>
         <div className="flex justify-center lg:justify-end w-full">
-          <div className="relative min-w-[200px] max-w-[400px] w-full h-86">
+          <div
+            ref={imageRef}
+            className="relative min-w-[200px] max-w-[400px] w-full h-86"
+          >
             <Image src={eu} alt="Eu" fill className="object-contain"/>
           </div>
         </div>
       </div>
-      <div className={"flex flex-col lg:flex-row items-center gap-4 w-full"}>
+      <div ref={statsRef} className={"flex flex-col lg:flex-row items-center gap-4 w-full"}>
         <div className={"text-white text-3xl"}>
           {yearSince('09/09/2003')} years of learning, <br/>
           {yearSince('17/01/2023')} years of experience
