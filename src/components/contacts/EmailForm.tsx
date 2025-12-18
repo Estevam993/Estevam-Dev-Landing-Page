@@ -34,7 +34,7 @@ export default function EmailForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-end gap-2 h-full w-full max-w-[28rem]"
+      className="flex flex-col items-center lg:items-end gap-2 h-full w-full max-w-[28rem] lg:max-w-[38rem]"
     >
       <input
         type="email"
@@ -61,8 +61,9 @@ export default function EmailForm() {
       />
       <button
         type="submit"
-        className={`text-white
-           w-[15rem] px-4 py-2 
+        className={`
+           w-[15rem] px-4 py-2
+        text-white
            border-2 border-transparent 
            cursor-pointer hover:scale-105 ease-in-out transition duration-150
        `}

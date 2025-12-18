@@ -23,7 +23,9 @@ export default function Header() {
       p-2
     ">
       <div className={"relative w-22 h-22"}>
-        <Image src={logo} alt={"logo"} fill/>
+        <a href={"#welcome"}>
+          <Image src={logo} alt={"logo"} fill/>
+        </a>
       </div>
       <div className={"block lg:hidden"}>
         <Menubar>
@@ -32,15 +34,15 @@ export default function Header() {
               <IconMenu2/>
             </MenubarTrigger>
             <MenubarContent>
-              <a href={"#welcome"}>
-                <MenubarItem>
-                  Welcome
-                </MenubarItem>
-              </a>
-              <MenubarSeparator/>
               <a href={"#introduction"}>
                 <MenubarItem>
                   Introduction
+                </MenubarItem>
+              </a>
+              <MenubarSeparator/>
+              <a href={"#contacts"}>
+                <MenubarItem>
+                  Contact
                 </MenubarItem>
               </a>
             </MenubarContent>
@@ -49,17 +51,6 @@ export default function Header() {
       </div>
 
       <div className={"hidden lg:flex items-center justify-center gap-4 lg:w-full"}>
-        <a href={"#welcome"}>
-          <div
-            className={`
-              text-white
-              hover:text-blue-400
-              hover:scale-115 cursor-pointer transition delay-150 duration-300 ease-in-out
-            `}
-          >
-            Welcome
-          </div>
-        </a>
         <a href={"#introduction"}>
           <div
             className={`
@@ -71,7 +62,17 @@ export default function Header() {
             Introduction
           </div>
         </a>
-
+        <a href={"#contacts"}>
+          <div
+            className={`
+              text-white
+              hover:text-blue-400
+              hover:scale-115 cursor-pointer transition delay-150 duration-300 ease-in-out
+            `}
+          >
+            Contact
+          </div>
+        </a>
       </div>
     </header>
   )

@@ -100,20 +100,23 @@ export default function WelcomeContainer() {
           {yearSince('17/01/2023')} years of experience
         </div>
         <div className={"flex flex-col gap-4"}>
-          <div
-            className={`
-            w-full max-w-96 h-14 p-4
-            flex items-center justify-center
-            bg-primary rounded-lg 
-            shadow-sm shadow-primary/40 
-            text-white text-2xl
-            hover:scale-115 cursor-pointer transition delay-150 duration-300 ease-in-out
-          `}
-          >
-            I wish to get in touch.
-          </div>
-          <div
-            className={`
+          <a href={"#contacts"}>
+            <div
+              className={`
+                w-full max-w-96 h-14 p-4
+                flex items-center justify-center
+                bg-primary rounded-lg 
+                shadow-sm shadow-primary/40 
+                text-white text-2xl
+                hover:scale-115 cursor-pointer transition delay-150 duration-300 ease-in-out
+              `}
+            >
+              I wish to get in touch.
+            </div>
+          </a>
+          <a href={"#introduction"}>
+            <div
+              className={`
             w-full max-w-96 h-14 p-4
             flex items-center justify-center
             rounded-lg 
@@ -121,9 +124,10 @@ export default function WelcomeContainer() {
             text-white text-2xl
             hover:scale-115 cursor-pointer transition delay-150 duration-300 ease-in-out
           `}
-          >
-            Just taking a look
-          </div>
+            >
+              Just taking a look
+            </div>
+          </a>
         </div>
 
       </div>
