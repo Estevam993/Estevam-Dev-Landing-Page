@@ -48,8 +48,10 @@ export default function Introduction() {
   }, []);
 
   return (
-    <div id={"introduction"}
-         className="w-full h-full py-24 px-4 md:px-40 lg:px-60 bg-secondary flex flex-col lg:flex-row items-center gap-4">
+    <div
+      id={"introduction"}
+         className="w-full h-full py-24 px-4 md:px-40 lg:px-60 bg-secondary flex flex-col lg:flex-row items-center gap-4"
+    >
       <div
         ref={titleRef}
         className={"text-white font-bold text-4xl md:text-5xl xl:text-7xl text-center lg:text-start mb-2 break-normal w-full lg:max-w-1/2 "}

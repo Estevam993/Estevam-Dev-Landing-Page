@@ -1,7 +1,6 @@
 "use client"
-import {Introduction, WelcomeContainer} from "@/components";
+import {Introduction, WelcomeContainer, Header, Contacts} from "@/components";
 import WorkInProgress from "@/components/WorkInProgress";
-import Header from "../components/Header";
 
 export default function Home() {
   return (
@@ -14,9 +13,7 @@ export default function Home() {
       <Introduction/>
       <div className={"h-16 welcome-container-2"}>
       </div>
-      <div>
-        Contato
-      </div>
+      <Contacts />
     </div>
   );
 }

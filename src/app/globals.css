@@ -192,3 +192,13 @@ body {
         @apply bg-background text-foreground;
     }
 }
+
+
+.instagram {
+    background: radial-gradient(circle at bottom left, rgba(253, 148, 62, 0.67), #FEDA77, #DD2A7B, #8134AF, #515BD4);
+}
+
+.linkedin {
+    color: #0077B5;
+    background: radial-gradient(circle at center, white 50%, transparent 60%);
+}
