@@ -1,0 +1,17 @@
+[
+  {
+    "href": "#introduction",
+    "label": "Introduction",
+    "icon": "Sparkles"
+  },
+  {
+    "href": "#stacks",
+    "label": "Stacks",
+    "icon": "Layers"
+  },
+  {
+    "href": "#contacts",
+    "label": "Contacts",
+    "icon": "MessageCircle"
+  }
+]

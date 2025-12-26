@@ -6,12 +6,14 @@ import {
   MenubarSeparator,
   MenubarTrigger,
 } from "@/components/ui/menubar"
+import {useHeaderService} from "@/services";
 
 import Image from "next/image"
 import logo from "../../public/images/logo.png"
 import {IconMenu2} from "@tabler/icons-react";
 
 export default function Header() {
+  const {sections, icons} = useHeaderService()
 
   return (
     <header className="
@@ -34,45 +36,50 @@ export default function Header() {
               <IconMenu2/>
             </MenubarTrigger>
             <MenubarContent>
-              <a href={"#introduction"}>
-                <MenubarItem>
-                  Introduction
-                </MenubarItem>
-              </a>
-              <MenubarSeparator/>
-              <a href={"#contacts"}>
-                <MenubarItem>
-                  Contact
-                </MenubarItem>
-              </a>
+              {sections.map((section, i) => {
+                const Icon = icons[section.icon]
+
+                return (
+                  <div key={i}>
+                    <a href={section.href}>
+                      <MenubarItem>
+                        <Icon/>
+                        {section.label}
+                      </MenubarItem>
+                    </a>
+                    {
+                      sections.length !== i + 1 && (
+                        <MenubarSeparator/>
+                      )
+                    }
+                  </div>
+                )
+              })}
             </MenubarContent>
           </MenubarMenu>
         </Menubar>
       </div>
 
       <div className={"hidden lg:flex items-center justify-center gap-4 lg:w-full"}>
-        <a href={"#introduction"}>
-          <div
-            className={`
-              text-white
-              hover:text-blue-400
-              hover:scale-115 cursor-pointer transition delay-150 duration-300 ease-in-out
-            `}
-          >
-            Introduction
-          </div>
-        </a>
-        <a href={"#contacts"}>
-          <div
-            className={`
-              text-white
-              hover:text-blue-400
-              hover:scale-115 cursor-pointer transition delay-150 duration-300 ease-in-out
-            `}
-          >
-            Contact
-          </div>
-        </a>
+        {sections.map((section, i) => {
+          const Icon = icons[section.icon]
+
+          return (
+            <a key={i} href={section.href}>
+              <div
+                className={`
+                  text-white
+                  hover:text-blue-400
+                  hover:scale-115 cursor-pointer transition delay-150 duration-300 ease-in-out
+                  flex gap-2
+                `}
+              >
+                <Icon/>
+                {section.label}
+              </div>
+            </a>
+          )
+        })}
       </div>
     </header>
   )

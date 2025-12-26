@@ -73,16 +73,17 @@ export default function WelcomeContainer() {
           className={"text-white text-center lg:text-start font-bold text-4xl md:text-5xl xl:text-7xl"}
         >
           <div className={"block lg:hidden"}>
-            Your best friend <br/>
-            in the <br/>
-            development area
-
+            Building scalable APIs and modern web applications.
+            <div className={"text-white/40 text-xl font-light"}>
+              Node.js • Laravel • React
+            </div>
           </div>
           <div className={"hidden lg:block"}>
-            Your best friend
-            in the<br/>
-            development area
-
+            Building scalable APIs<br/>
+            and modern web applications.
+            <div className={"text-white/40 text-xl font-light"}>
+              Node.js • Laravel • React
+            </div>
           </div>
         </div>
         <div className="flex justify-center lg:justify-end w-full">

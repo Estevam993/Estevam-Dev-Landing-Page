@@ -67,7 +67,7 @@ export default function Stacks() {
     <div
       ref={containerRef}
       id="stacks"
-      className="w-full h-full py-24 px-4 md:px-40 lg:px-60 bg-secondary flex flex-col items-center gap-4 text-white"
+      className="w-full h-full py-24 px-4 md:px-40 lg:px-55 bg-secondary flex flex-col items-center gap-4 text-white"
     >
       <div className="stacks-title text-center font-bold text-4xl md:text-5xl xl:text-7xl">
         Want to explore my tech stack?
@@ -86,8 +86,8 @@ export default function Stacks() {
           text-white
         "
       >
-        <div className="flex flex-col items-center lg:items-start lg:w-full gap-4">
-          <div className="stack-card">
+        <div className="flex flex-col items-center lg:items-start lg:w-full lg:max-w-[20rem] gap-4">
+          <div className="stack-card lg:w-full">
             <CardStack
               id="frontend"
               activeId={activeId}
@@ -97,7 +97,7 @@ export default function Stacks() {
             />
           </div>
 
-          <div className="stack-card">
+          <div className="stack-card lg:w-full">
             <CardStack
               id="backend"
               activeId={activeId}
@@ -107,7 +107,7 @@ export default function Stacks() {
             />
           </div>
 
-          <div className="stack-card">
+          <div className="stack-card lg:w-full">
             <CardStack
               id="data"
               activeId={activeId}
@@ -117,7 +117,7 @@ export default function Stacks() {
             />
           </div>
 
-          <div className="stack-card">
+          <div className="stack-card lg:w-full">
             <CardStack
               id="tools"
               activeId={activeId}

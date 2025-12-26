@@ -58,7 +58,7 @@ export default function StackLevel({icon, title, level, color}: StackLevelProps)
 
   return (
     <div
-      className={'flex flex-row justify-between items-center rounded-br-md rounded-tr-md p-4 gap-2 w-full max-w-none'}
+      className={'flex flex-row justify-between items-center rounded-br-md rounded-tr-md p-4 gap-2 w-full max-w-[25rem]'}
       style={{
         background: `linear-gradient(90deg, ${startColor}, ${endColor})`
       }}

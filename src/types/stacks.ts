@@ -12,13 +12,6 @@ type CardStackProps = {
 type Level = 1 | 2 | 3 | 4 | 5;
 type Color = "green" | "red" | "pink" | "blue" | "yellow"
 
-type StackLevelType = {
-  icon: ReactNode;
-  title: string,
-  level: Level,
-  color?: Color
-}
-
 type StackItemData = {
   icon: IconName;
   title: string;
@@ -40,4 +33,4 @@ type Stacks = {
   tools: StackItemData[];
 };
 
-export type {StackLevelType, CardStackProps, Stacks, StackLevelProps};
+export type {CardStackProps, Stacks, StackLevelProps};
