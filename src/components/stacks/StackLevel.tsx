@@ -1,7 +1,7 @@
 import {JSX} from 'react';
-import type {StackLevelType} from "@/types/stacks"
+import type {StackLevelProps} from "@/types/stacks"
 
-export default function StackLevel({icon, title, level, color}: StackLevelType) {
+export default function StackLevel({icon, title, level, color}: StackLevelProps) {
   let iconColor
   let blockBgColor
   let startColor

@@ -1,4 +1,5 @@
-import {JSX} from "react";
+import {JSX, ReactNode} from "react";
+import type {IconName} from "@/services/useStacksService"
 
 type CardStackProps = {
   id: string;
@@ -8,22 +9,35 @@ type CardStackProps = {
   setActiveId: (id: string | null) => void;
 };
 
+type Level = 1 | 2 | 3 | 4 | 5;
+type Color = "green" | "red" | "pink" | "blue" | "yellow"
+
 type StackLevelType = {
-  icon: JSX.Element,
+  icon: ReactNode;
   title: string,
   level: Level,
   color?: Color
 }
 
-type Level = 1 | 2 | 3 | 4 | 5;
-type Color = "green" | "red" | "pink" | "blue" | "yellow"
+type StackItemData = {
+  icon: IconName;
+  title: string;
+  level: Level;
+  color?: Color;
+};
+
+type StackLevelProps = {
+  icon: ReactNode;
+  title: string;
+  level: Level;
+  color?: Color;
+};
 
 type Stacks = {
-  frontend: StackLevelType[];
-  backend: StackLevelType[];
-  data: StackLevelType[];
-  tools: StackLevelType[];
-}
+  frontend: StackItemData[];
+  backend: StackItemData[];
+  data: StackItemData[];
+  tools: StackItemData[];
+};
 
-
-export type {StackLevelType, CardStackProps, Stacks};
+export type {StackLevelType, CardStackProps, Stacks, StackLevelProps};

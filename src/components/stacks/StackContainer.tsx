@@ -32,7 +32,7 @@ export default function StackContainer({activeId}: { activeId: string }) {
               return (
                 <StackLevel
                   key={index}
-                  icon={Icon ? <Icon/> : null}
+                  icon={<Icon/>}
                   title={item.title}
                   level={item.level}
                   color={item.color}

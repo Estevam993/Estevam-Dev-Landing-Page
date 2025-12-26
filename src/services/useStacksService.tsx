@@ -28,7 +28,11 @@ import {
 } from "@tabler/icons-react";
 import type {Stacks} from "@/types/stacks"
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 const typedStacks: Stacks = stacks
+
+export type IconName = keyof typeof icons;
 
 const icons = {
   IconBrandHtml5,
