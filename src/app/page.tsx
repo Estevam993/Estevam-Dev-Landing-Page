@@ -1,11 +1,12 @@
 "use client"
-import {Introduction, WelcomeContainer, Header, Contacts} from "@/components";
+import {Contacts, Header, Introduction, WelcomeContainer} from "@/components";
 import WorkInProgress from "@/components/WorkInProgress";
+import Stacks from "@/components/Stacks";
 
 export default function Home() {
   return (
     <div className="overflow-x-hidden static">
-      <Header />
+      <Header/>
       <WorkInProgress/>
       <WelcomeContainer/>
       <div className={"h-16 welcome-container"}>
@@ -13,7 +14,10 @@ export default function Home() {
       <Introduction/>
       <div className={"h-16 welcome-container-2"}>
       </div>
-      <Contacts />
+      <Stacks/>
+      <div className={"h-16 welcome-container"}>
+      </div>
+      <Contacts/>
     </div>
   );
 }
