@@ -69,7 +69,7 @@ export default function Stacks() {
       id="stacks"
       className="w-full h-full py-24 px-4 md:px-40 lg:px-60 bg-secondary flex flex-col items-center gap-4 text-white"
     >
-      <div className="stacks-title text-center font-bold text-4xl lg:text-6xl">
+      <div className="stacks-title text-center font-bold text-4xl md:text-5xl xl:text-7xl">
         Want to explore my tech stack?
         <div className="text-xl font-light text-white/70">
           See it below.

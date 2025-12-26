@@ -70,7 +70,7 @@ export default function WelcomeContainer() {
       >
         <div
           ref={titleRef}
-          className={"text-white text-center lg:text-start text-4xl lg:text-5xl xl:text-7xl"}
+          className={"text-white text-center lg:text-start font-bold text-4xl md:text-5xl xl:text-7xl"}
         >
           <div className={"block lg:hidden"}>
             Your best friend <br/>
