@@ -1,5 +1,5 @@
 import StackLevel from "@/components/stacks/StackLevel";
-import {useStacksService} from "@/services/index";
+import {useStacksService} from "@/services";
 
 export default function StackContainer({activeId}: { activeId: string }) {
   const {
