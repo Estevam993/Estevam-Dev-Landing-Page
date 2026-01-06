@@ -45,9 +45,12 @@ export default function Projects() {
   }, [titleRef]);
 
   return (
-    <div className="w-full h-[75vh] py-4 px-4 md:px-60 bg-secondary">
-      <div className={"text-lg text-white font-bold text-center"}>
-        {title || "Projects"}
+    <div id={"projects"} className="w-full h-full py-24 px-4 md:px-40 lg:px-55 bg-secondary flex flex-col items-center gap-4 text-white">
+      <div className={"text-center font-bold text-4xl md:text-5xl xl:text-7xl"}>
+        My Projects
+      </div>
+      <div className={"text-lg font-bold text-center"}>
+        {title}
       </div>
       <div className="flex flex-col lg:flex-row " ref={titleRef}>
         <SelectProjectContainer

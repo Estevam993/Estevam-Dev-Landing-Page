@@ -10,8 +10,13 @@
     "icon": "Layers"
   },
   {
+    "href": "#projects",
+    "label": "Projects",
+    "icon": "FolderOpenDot"
+  },
+  {
     "href": "#contacts",
-    "label": "Contacts",
+    "label": "Contact",
     "icon": "MessageCircle"
   }
 ]

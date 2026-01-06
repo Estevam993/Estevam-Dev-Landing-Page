@@ -52,13 +52,13 @@ export default function VideoContainer({video, show}: VideoContainerType): JSX.E
           <PopoverTrigger asChild>
             <div
               className={`
-            w-8 h-8 
-            shrink-0 
-            flex items-center justify-center 
-            bg-[var(--main-color)] text-white
-            rounded-full 
-            cursor-pointer 
-            `}
+                w-8 h-8 
+                shrink-0 
+                flex items-center justify-center 
+                bg-[var(--main-color)] text-white
+                rounded-full 
+                cursor-pointer 
+              `}
             >
               <IconQuestionMark/>
             </div>
@@ -86,7 +86,7 @@ export default function VideoContainer({video, show}: VideoContainerType): JSX.E
         </Popover>
       </div>
       <div className={"hidden lg:block"}>
-        <div className={"p-2 rounded-lg h-max bg-white"}>
+        <div className={"p-2 rounded-lg h-max bg-white text-black"}>
           <div className={"text-xl "}>
             {video.description}
           </div>

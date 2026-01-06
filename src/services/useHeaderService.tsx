@@ -1,11 +1,12 @@
 import sections from "@/json/sections.json"
 
-import {Layers, MessageCircle, Sparkles,} from "lucide-react";
+import {Layers, MessageCircle, Sparkles,FolderOpenDot} from "lucide-react";
 
 const icons = {
   Sparkles,
   Layers,
   MessageCircle,
+  FolderOpenDot
 }
 
 type IconName = keyof typeof icons;
